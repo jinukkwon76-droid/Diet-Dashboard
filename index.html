@@ -1,53 +1,1213 @@
-<!DOCTYPE html>
+<!doctype html>
 2
-<html>
+<html lang="ko">
 3
 <head>
 4
-<meta charset="UTF-8">
+<meta charset="utf-8" />
 5
-<title>내 감량 포털</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 6
-</head>
+<title>2026년 8월 감량 대시보드</title>
 7
-<body>
+ 
 8
-<h1>🏃 내 감량 포털</h1>
+<style>
 9
- 
+:root {
 10
-<h2>현재 목표</h2>
+--bg: #0b1120;
 11
-<ul>
+--panel: #111827;
 12
-<li>목표 체중: 73kg</li>
+--card: #172033;
 13
-<li>목표 체지방률: 15.5%</li>
+--card2: #1f2937;
 14
-</ul>
+--text: #f8fafc;
 15
- 
+--muted: #94a3b8;
 16
-<h2>현재 기록</h2>
+--line: #334155;
 17
-<ul>
+--blue: #38bdf8;
 18
-<li>현재 체중: 76.57kg</li>
+--green: #22c55e;
 19
-<li>러닝 누적: 22.1km</li>
+--yellow: #f59e0b;
 20
-<li>푸시업: 280개</li>
+--red: #ef4444;
 21
-<li>스쿼트: 100개</li>
+--purple: #a78bfa;
 22
-<li>카프레이즈: 100개</li>
+--white-soft: #e5e7eb;
 23
-</ul>
+}
 24
  
 25
-<p>GitHub Pages 테스트 성공!</p>
+* {
 26
-</body>
+box-sizing: border-box;
 27
+}
+28
+ 
+29
+body {
+30
+margin: 0;
+31
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Arial, sans-serif;
+32
+background:
+33
+radial-gradient(circle at top left, rgba(56,189,248,.22), transparent 34%),
+34
+radial-gradient(circle at top right, rgba(167,139,250,.18), transparent 34%),
+35
+var(--bg);
+36
+color: var(--text);
+37
+line-height: 1.55;
+38
+}
+39
+ 
+40
+.wrap {
+41
+max-width: 1240px;
+42
+margin: 0 auto;
+43
+padding: 28px 16px 56px;
+44
+}
+45
+ 
+46
+header {
+47
+display: flex;
+48
+justify-content: space-between;
+49
+align-items: flex-start;
+50
+gap: 18px;
+51
+margin-bottom: 24px;
+52
+}
+53
+ 
+54
+.eyebrow {
+55
+color: #bae6fd;
+56
+font-weight: 800;
+57
+letter-spacing: .08em;
+58
+font-size: 13px;
+59
+text-transform: uppercase;
+60
+margin-bottom: 8px;
+61
+}
+62
+ 
+63
+h1 {
+64
+margin: 0;
+65
+font-size: 36px;
+66
+letter-spacing: -.035em;
+67
+line-height: 1.12;
+68
+}
+69
+ 
+70
+.subtitle {
+71
+color: var(--muted);
+72
+margin: 10px 0 0;
+73
+font-size: 16px;
+74
+}
+75
+ 
+76
+.status-pill {
+77
+white-space: nowrap;
+78
+border: 1px solid rgba(34,197,94,.35);
+79
+background: rgba(34,197,94,.12);
+80
+color: #bbf7d0;
+81
+padding: 10px 14px;
+82
+border-radius: 999px;
+83
+font-weight: 800;
+84
+font-size: 14px;
+85
+}
+86
+ 
+87
+.cards {
+88
+display: grid;
+89
+grid-template-columns: repeat(4, minmax(0, 1fr));
+90
+gap: 14px;
+91
+margin: 24px 0;
+92
+}
+93
+ 
+94
+.card {
+95
+background: linear-gradient(180deg, rgba(255,255,255,.065), rgba(255,255,255,.025));
+96
+border: 1px solid rgba(148,163,184,.22);
+97
+border-radius: 20px;
+98
+padding: 18px;
+99
+box-shadow: 0 14px 34px rgba(0,0,0,.24);
+100
+}
+101
+ 
+102
+.label {
+103
+color: var(--muted);
+104
+font-size: 13px;
+105
+margin-bottom: 8px;
+106
+font-weight: 700;
+107
+}
+108
+ 
+109
+.value {
+110
+font-size: 30px;
+111
+font-weight: 900;
+112
+letter-spacing: -.03em;
+113
+}
+114
+ 
+115
+.note {
+116
+color: #cbd5e1;
+117
+font-size: 13px;
+118
+margin-top: 8px;
+119
+}
+120
+ 
+121
+.progress {
+122
+height: 11px;
+123
+background: #334155;
+124
+border-radius: 999px;
+125
+overflow: hidden;
+126
+margin-top: 12px;
+127
+}
+128
+ 
+129
+.bar {
+130
+height: 100%;
+131
+border-radius: 999px;
+132
+background: linear-gradient(90deg, var(--blue), var(--green));
+133
+}
+134
+ 
+135
+.bar.yellow {
+136
+background: linear-gradient(90deg, var(--yellow), var(--green));
+137
+}
+138
+ 
+139
+.layout {
+140
+display: grid;
+141
+grid-template-columns: 1.05fr .95fr;
+142
+gap: 16px;
+143
+margin-top: 20px;
+144
+}
+145
+ 
+146
+section {
+147
+margin-top: 24px;
+148
+}
+149
+ 
+150
+h2 {
+151
+margin: 0 0 12px;
+152
+font-size: 22px;
+153
+letter-spacing: -.02em;
+154
+}
+155
+ 
+156
+.mini-title {
+157
+color: #dbeafe;
+158
+font-weight: 900;
+159
+margin-bottom: 10px;
+160
+}
+161
+ 
+162
+.chips {
+163
+display: flex;
+164
+flex-wrap: wrap;
+165
+gap: 10px;
+166
+margin-top: 12px;
+167
+}
+168
+ 
+169
+.chip {
+170
+padding: 8px 12px;
+171
+border-radius: 999px;
+172
+background: rgba(56,189,248,.12);
+173
+border: 1px solid rgba(56,189,248,.28);
+174
+color: #bae6fd;
+175
+font-weight: 800;
+176
+font-size: 13px;
+177
+}
+178
+ 
+179
+.chip.green {
+180
+background: rgba(34,197,94,.12);
+181
+border-color: rgba(34,197,94,.28);
+182
+color: #bbf7d0;
+183
+}
+184
+ 
+185
+.chip.yellow {
+186
+background: rgba(245,158,11,.13);
+187
+border-color: rgba(245,158,11,.28);
+188
+color: #fde68a;
+189
+}
+190
+ 
+191
+ul {
+192
+margin: 0;
+193
+padding-left: 20px;
+194
+color: #e2e8f0;
+195
+}
+196
+ 
+197
+li {
+198
+margin: 8px 0;
+199
+}
+200
+ 
+201
+.callout {
+202
+border-left: 4px solid var(--yellow);
+203
+padding: 14px 16px;
+204
+border-radius: 14px;
+205
+background: rgba(245,158,11,.08);
+206
+color: #fde68a;
+207
+}
+208
+ 
+209
+.chart-box {
+210
+height: 260px;
+211
+position: relative;
+212
+background: rgba(15,23,42,.48);
+213
+border: 1px solid rgba(148,163,184,.16);
+214
+border-radius: 16px;
+215
+padding: 12px;
+216
+overflow: hidden;
+217
+}
+218
+ 
+219
+svg {
+220
+width: 100%;
+221
+height: 100%;
+222
+display: block;
+223
+}
+224
+ 
+225
+.axis {
+226
+stroke: #475569;
+227
+stroke-width: 1;
+228
+}
+229
+ 
+230
+.gridline {
+231
+stroke: rgba(148,163,184,.18);
+232
+stroke-width: 1;
+233
+}
+234
+ 
+235
+.line-weight {
+236
+fill: none;
+237
+stroke: #38bdf8;
+238
+stroke-width: 4;
+239
+stroke-linecap: round;
+240
+stroke-linejoin: round;
+241
+}
+242
+ 
+243
+.dot {
+244
+fill: #38bdf8;
+245
+stroke: #0b1120;
+246
+stroke-width: 3;
+247
+}
+248
+ 
+249
+.label-svg {
+250
+fill: #cbd5e1;
+251
+font-size: 12px;
+252
+font-weight: 700;
+253
+}
+254
+ 
+255
+.target {
+256
+stroke: #22c55e;
+257
+stroke-width: 2;
+258
+stroke-dasharray: 6 6;
+259
+}
+260
+ 
+261
+.table-wrap {
+262
+overflow-x: auto;
+263
+background: rgba(15,23,42,.78);
+264
+border: 1px solid rgba(148,163,184,.2);
+265
+border-radius: 18px;
+266
+}
+267
+ 
+268
+table {
+269
+width: 100%;
+270
+min-width: 1180px;
+271
+border-collapse: collapse;
+272
+}
+273
+ 
+274
+th, td {
+275
+padding: 13px 12px;
+276
+border-bottom: 1px solid var(--line);
+277
+vertical-align: top;
+278
+font-size: 14px;
+279
+}
+280
+ 
+281
+th {
+282
+background: #111827;
+283
+color: #dbeafe;
+284
+text-align: left;
+285
+position: sticky;
+286
+top: 0;
+287
+z-index: 1;
+288
+}
+289
+ 
+290
+tbody tr:hover td {
+291
+background: rgba(56,189,248,.07);
+292
+}
+293
+ 
+294
+.date {
+295
+color: #bae6fd;
+296
+font-weight: 900;
+297
+white-space: nowrap;
+298
+}
+299
+ 
+300
+.meal {
+301
+min-width: 330px;
+302
+}
+303
+ 
+304
+.supplement {
+305
+min-width: 220px;
+306
+color: #dcfce7;
+307
+}
+308
+ 
+309
+.comment {
+310
+min-width: 270px;
+311
+color: #e2e8f0;
+312
+}
+313
+ 
+314
+.score-grid {
+315
+display: grid;
+316
+grid-template-columns: repeat(3, 1fr);
+317
+gap: 12px;
+318
+margin-top: 12px;
+319
+}
+320
+ 
+321
+.score {
+322
+background: rgba(255,255,255,.045);
+323
+border: 1px solid rgba(148,163,184,.18);
+324
+border-radius: 14px;
+325
+padding: 12px;
+326
+}
+327
+ 
+328
+.score strong {
+329
+display: block;
+330
+font-size: 22px;
+331
+margin-top: 4px;
+332
+}
+333
+ 
+334
+footer {
+335
+margin-top: 28px;
+336
+color: var(--muted);
+337
+font-size: 12px;
+338
+}
+339
+ 
+340
+@media (max-width: 960px) {
+341
+header {
+342
+flex-direction: column;
+343
+}
+344
+ 
+345
+.cards {
+346
+grid-template-columns: repeat(2, minmax(0, 1fr));
+347
+}
+348
+ 
+349
+.layout {
+350
+grid-template-columns: 1fr;
+351
+}
+352
+ 
+353
+.score-grid {
+354
+grid-template-columns: 1fr;
+355
+}
+356
+ 
+357
+h1 {
+358
+font-size: 29px;
+359
+}
+360
+}
+361
+ 
+362
+@media (max-width: 560px) {
+363
+.wrap {
+364
+padding: 22px 12px 44px;
+365
+}
+366
+ 
+367
+.cards {
+368
+grid-template-columns: 1fr;
+369
+}
+370
+ 
+371
+.value {
+372
+font-size: 26px;
+373
+}
+374
+}
+375
+</style>
+376
+</head>
+377
+ 
+378
+<body>
+379
+<div class="wrap">
+380
+<header>
+381
+<div>
+382
+<div class="eyebrow">Personal Fitness Portal V2</div>
+383
+<h1>2026년 8월 감량 대시보드</h1>
+384
+<p class="subtitle">
+385
+체중, 체지방률, 식사, 단백질 보충, 러닝, 근력운동을 한 화면에서 관리하는 개인 포털입니다.
+386
+</p>
+387
+</div>
+388
+<div class="status-pill">GitHub Pages 배포 성공</div>
+389
+</header>
+390
+ 
+391
+<div class="cards">
+392
+<div class="card">
+393
+<div class="label">현재 체중</div>
+394
+<div class="value">76.57kg</div>
+395
+<div class="note">시작 76.17kg · 목표 73.0kg</div>
+396
+<div class="progress">
+397
+<div class="bar" style="width:0%"></div>
+398
+</div>
+399
+</div>
+400
+ 
+401
+<div class="card">
+402
+<div class="label">현재 평균 체중</div>
+403
+<div class="value">76.29kg</div>
+404
+<div class="note">8/1~8/4 기록 기준. 7일 평균은 데이터 추가 후 판단.</div>
+405
+</div>
+406
+ 
+407
+<div class="card">
+408
+<div class="label">체지방률 목표</div>
+409
+<div class="value">17.3% → 15.5%</div>
+410
+<div class="note">피트니스센터 주 1회 측정값으로 업데이트 예정.</div>
+411
+</div>
+412
+ 
+413
+<div class="card">
+414
+<div class="label">러닝 누적</div>
+415
+<div class="value">22.1km</div>
+416
+<div class="note">주간 목표 35km 대비 약 63%</div>
+417
+<div class="progress">
+418
+<div class="bar yellow" style="width:63%"></div>
+419
+</div>
+420
+</div>
+421
+</div>
+422
+ 
+423
+<div class="layout">
+424
+<section class="card">
+425
+<h2>체중 추세</h2>
+426
+<div class="chart-box">
+427
+<svg viewBox="0 0 680 260" role="img" aria-label="8월 체중 변화 그래프">
+428
+<line x1="55" y1="30" x2="55" y2="215" class="axis" />
+429
+<line x1="55" y1="215" x2="640" y2="215" class="axis" />
+430
+ 
+431
+<line x1="55" y1="55" x2="640" y2="55" class="gridline" />
+432
+<line x1="55" y1="105" x2="640" y2="105" class="gridline" />
+433
+<line x1="55" y1="155" x2="640" y2="155" class="gridline" />
+434
+ 
+435
+<line x1="55" y1="205" x2="640" y2="205" class="target" />
+436
+<text x="565" y="198" class="label-svg">목표 73kg</text>
+437
+ 
+438
+<!-- 데이터: 8/1 76.17, 8/2 76.20, 8/3 76.20, 8/4 76.57 -->
+439
+<polyline class="line-weight"
+440
+points="90,138 250,136 410,136 570,92" />
+441
+ 
+442
+<circle cx="90" cy="138" r="7" class="dot" />
+443
+<circle cx="250" cy="136" r="7" class="dot" />
+444
+<circle cx="410" cy="136" r="7" class="dot" />
+445
+<circle cx="570" cy="92" r="7" class="dot" />
+446
+ 
+447
+<text x="78" y="235" class="label-svg">8/1</text>
+448
+<text x="238" y="235" class="label-svg">8/2</text>
+449
+<text x="398" y="235" class="label-svg">8/3</text>
+450
+<text x="558" y="235" class="label-svg">8/4</text>
+451
+ 
+452
+<text x="70" y="128" class="label-svg">76.17</text>
+453
+<text x="230" y="126" class="label-svg">76.20</text>
+454
+<text x="390" y="126" class="label-svg">76.20</text>
+455
+<text x="550" y="82" class="label-svg">76.57</text>
+456
+</svg>
+457
+</div>
+458
+<p class="note">
+459
+8/4 체중 증가는 지방 증가보다는 수분, 나트륨, 운동 회복 수분 영향 가능성이 큽니다.
+460
+</p>
+461
+</section>
+462
+ 
+463
+<section class="card">
+464
+<h2>운동 누적</h2>
+465
+<div class="chips">
+466
+<span class="chip">러닝 22.1km</span>
+467
+<span class="chip green">푸시업 280개</span>
+468
+<span class="chip green">스쿼트 100개</span>
+469
+<span class="chip yellow">카프레이즈 100개</span>
+470
+</div>
+471
+ 
+472
+<div class="score-grid">
+473
+<div class="score">
+474
+<div class="label">러닝 목표</div>
+475
+<strong>63%</strong>
+476
+<div class="note">35km 중 22.1km</div>
+477
+</div>
+478
+<div class="score">
+479
+<div class="label">근력운동</div>
+480
+<strong>개선 중</strong>
+481
+<div class="note">스쿼트와 카프레이즈 추가</div>
+482
+</div>
+483
+<div class="score">
+484
+<div class="label">단백질 전략</div>
+485
+<strong>좋음</strong>
+486
+<div class="note">더단백, 요거트, 계란 활용</div>
+487
+</div>
+488
+</div>
+489
+</section>
+490
+</div>
+491
+ 
+492
+<section class="card">
+493
+<h2>이번 주 핵심 전략</h2>
+494
+<ul>
+495
+<li>점심은 회사 일반식 기준으로 밥을 1/2~2/3 수준으로 조절합니다.</li>
+496
+<li>저녁은 닭가슴살 200g + 양파 1개 + 새송이버섯 1개 + 마늘 5~6쪽 조합으로 1주일 도전합니다.</li>
+497
+<li>부족하거나 배고픈 날은 삶은계란 2개를 추가합니다.</li>
+498
+<li>공복 러닝 후에는 빙그레 더단백 또는 그릭요거트로 단백질을 보충합니다.</li>
+499
+<li>체중은 하루 숫자보다 7일 평균 체중과 체지방률 추세로 판단합니다.</li>
+500
+</ul>
+501
+</section>
+502
+ 
+503
+<section>
+504
+<div class="callout">
+505
+오늘의 해석: 76.57kg은 실망할 숫자라기보다 단기 변동 가능성이 큰 숫자입니다. 러닝 8.1km, 스쿼트 100개, 푸시업 80개, 카프레이즈 100개, 운동 직후 단백질 보충은 매우 좋은 흐름입니다.
+506
+</div>
+507
+</section>
+508
+ 
+509
+<section>
+510
+<h2>일별 감량 관리표</h2>
+511
+<div class="table-wrap">
+512
+<table>
+513
+<thead>
+514
+<tr>
+515
+<th>날짜</th>
+516
+<th>체중</th>
+517
+<th>체지방률</th>
+518
+<th>식사기록</th>
+519
+<th>kcal 추정</th>
+520
+<th>단백질 상태</th>
+521
+<th>추천 보충 음식</th>
+522
+<th>러닝</th>
+523
+<th>운동</th>
+524
+<th>코멘트</th>
+525
+</tr>
+526
+</thead>
+527
+ 
+528
+<tbody>
+529
+<tr>
+530
+<td class="date">8/1</td>
+531
+<td>76.17kg</td>
+532
+<td>17.3%</td>
+533
+<td class="meal">
+534
+아침 스킵 / 점심 복숭아 1개 + 알리올리오 파스타 1인분 / 저녁 복숭아 1개 + 삼겹살 200g + 상추 + 깻잎 + 된장찌개 / 간식 냉동 블루베리 150g
+535
+</td>
+536
+<td>1,500~1,800</td>
+537
+<td>부족 (-40g 내외)</td>
+538
+<td class="supplement">삶은계란 2개 + 그릭요거트 1개</td>
+539
+<td>7km</td>
+540
+<td>푸시업 100개</td>
+541
+<td class="comment">운동은 좋음. 아침과 점심 단백질 부족, 삼겹살 비중 높음.</td>
+542
+</tr>
+543
+ 
+544
+<tr>
+545
+<td class="date">8/2</td>
+546
+<td>76.20kg</td>
+547
+<td>측정 없음</td>
+548
+<td class="meal">
+549
+아침 스킵 / 점심 돈까스 / 저녁 삼겹살 200g + 상추 + 깻잎 + 된장 / 간식 없음
+550
+</td>
+551
+<td>1,400~1,700</td>
+552
+<td>부족 (-50g 내외)</td>
+553
+<td class="supplement">더단백 1개 또는 삶은계란 2개</td>
+554
+<td>7km</td>
+555
+<td>푸시업 100개</td>
+556
+<td class="comment">점심 일반식, 저녁 삼겹살. 단백질은 있으나 지방 비중 높음.</td>
+557
+</tr>
+558
+ 
+559
+<tr>
+560
+<td class="date">8/3</td>
+561
+<td>76.20kg</td>
+562
+<td>측정 없음</td>
+563
+<td class="meal">
+564
+아침 그릭요거트 1개 + 아오리사과 1개 / 점심 김밥 1줄 + 아오리사과 1개 / 간식 그릭요거트 1개 / 저녁 미입력
+565
+</td>
+566
+<td>800~1,000 + 저녁</td>
+567
+<td>개선, 저녁 확인 필요</td>
+568
+<td class="supplement">저녁 단백질 보충 권장: 앞다리살 200g 또는 닭가슴살 200g</td>
+569
+<td>미입력</td>
+570
+<td>미입력</td>
+571
+<td class="comment">그릭요거트 2개로 단백질 보완. 저녁 기록 필요.</td>
+572
+</tr>
+573
+ 
+574
+<tr>
+575
+<td class="date">8/4</td>
+576
+<td>76.57kg</td>
+577
+<td>측정 없음</td>
+578
+<td class="meal">
+579
+운동 직후 빙그레 더단백 딸기 1개 / 아침 빙그레 요즘 그릭요거트 1개 + 작은 아오리사과 1개 / 점심 미입력 / 저녁 계획: 닭가슴살 200g + 양파 1개 + 새송이버섯 1개 + 마늘 5~6쪽, 부족하면 삶은계란 2개
+580
+</td>
+581
+<td>현재 300~400 + 점심/저녁</td>
+582
+<td>양호하게 시작</td>
+583
+<td class="supplement">점심 단백질 부족 시 삶은계란 2개 또는 더단백 1개</td>
+584
+<td>8.1km</td>
+585
+<td>스쿼트 100개 + 푸시업 80개 + 카프레이즈 100개</td>
+586
+<td class="comment">체중 상승은 수분, 나트륨, 회복 수분 가능성. 운동과 단백질 보충 매우 좋음.</td>
+587
+</tr>
+588
+</tbody>
+589
+</table>
+590
+</div>
+591
+</section>
+592
+ 
+593
+<section class="card">
+594
+<h2>러닝화 메모</h2>
+595
+<ul>
+596
+<li>적토끼 울트라9: 반발력과 페이스는 좋지만 발목 바깥쪽 통증과 후반부 발 걸림 느낌이 있음.</li>
+597
+<li>노바블라스트5: 안정적이고 발목 부담은 적지만 반발력과 페이스 만족도는 낮음.</li>
+598
+<li>다음 관리 포인트: 신발별 거리, 발목 통증 점수, 걸릴 뻔한 횟수를 기록하면 원인 파악에 도움.</li>
+599
+</ul>
+600
+</section>
+601
+ 
+602
+<footer>
+603
+이 페이지는 개인 감량 기록용 정적 HTML 대시보드입니다. 의료적 판단은 참고용이며, 통증이나 이상 증상이 지속되면 전문가 상담을 권장합니다.
+604
+</footer>
+605
+</div>
+606
+</body>
+607
 </html>
