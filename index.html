@@ -91,4 +91,477 @@ h1{
   background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
   border:1px solid rgba(148,163,184,.22);
   border-radius:20px;
-  padding
+  padding:18px;
+  box-shadow:0 14px 34px rgba(0,0,0,.22);
+}
+
+.label{
+  color:var(--muted);
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.value{
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:-.03em;
+}
+
+.note{
+  color:#cbd5e1;
+  font-size:13px;
+  margin-top:8px;
+}
+
+.progress{
+  height:10px;
+  background:#334155;
+  border-radius:999px;
+  overflow:hidden;
+  margin-top:12px;
+}
+
+.bar{
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--blue),var(--green));
+}
+
+.grid2{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:14px;
+  margin-top:18px;
+}
+
+h2{
+  margin:0 0 14px;
+  font-size:22px;
+}
+
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.chip{
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(56,189,248,.12);
+  border:1px solid rgba(56,189,248,.3);
+  color:#bae6fd;
+  font-weight:800;
+  font-size:13px;
+}
+
+.chip.green{
+  background:rgba(34,197,94,.12);
+  border-color:rgba(34,197,94,.3);
+  color:#bbf7d0;
+}
+
+.chip.yellow{
+  background:rgba(245,158,11,.14);
+  border-color:rgba(245,158,11,.32);
+  color:#fde68a;
+}
+
+.strategy{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.strategy-item{
+  background:rgba(15,23,42,.55);
+  border:1px solid rgba(148,163,184,.16);
+  border-radius:14px;
+  padding:12px;
+}
+
+.strategy-item strong{
+  display:block;
+  color:#dbeafe;
+  margin-bottom:6px;
+}
+
+.chart{
+  height:250px;
+  background:rgba(15,23,42,.5);
+  border:1px solid rgba(148,163,184,.16);
+  border-radius:16px;
+  padding:12px;
+}
+
+svg{
+  width:100%;
+  height:100%;
+}
+
+.axis{
+  stroke:#475569;
+  stroke-width:1;
+}
+
+.gridline{
+  stroke:rgba(148,163,184,.18);
+  stroke-width:1;
+}
+
+.weight-line{
+  fill:none;
+  stroke:#38bdf8;
+  stroke-width:4;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.dot{
+  fill:#38bdf8;
+  stroke:#0b1120;
+  stroke-width:3;
+}
+
+.svg-text{
+  fill:#cbd5e1;
+  font-size:12px;
+  font-weight:700;
+}
+
+.target-line{
+  stroke:#22c55e;
+  stroke-width:2;
+  stroke-dasharray:6 6;
+}
+
+.section{
+  margin-top:22px;
+}
+
+.callout{
+  border-left:4px solid var(--yellow);
+  background:rgba(245,158,11,.09);
+  color:#fde68a;
+  padding:14px 16px;
+  border-radius:14px;
+}
+
+.table-wrap{
+  overflow-x:auto;
+  border:1px solid rgba(148,163,184,.2);
+  border-radius:18px;
+  background:rgba(15,23,42,.76);
+}
+
+table{
+  width:100%;
+  min-width:1120px;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:13px 12px;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+  font-size:14px;
+}
+
+th{
+  background:#111827;
+  color:#dbeafe;
+  text-align:left;
+}
+
+tr:hover td{
+  background:rgba(56,189,248,.07);
+}
+
+.date{
+  color:#bae6fd;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.meal{
+  min-width:330px;
+}
+
+.supplement{
+  min-width:220px;
+  color:#dcfce7;
+}
+
+.comment{
+  min-width:260px;
+  color:#e2e8f0;
+}
+
+ul{
+  margin:0;
+  padding-left:20px;
+  color:#e2e8f0;
+}
+
+li{
+  margin:8px 0;
+}
+
+.footer{
+  margin-top:28px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+@media(max-width:900px){
+  .header{
+    flex-direction:column;
+  }
+
+  .cards{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .grid2{
+    grid-template-columns:1fr;
+  }
+
+  .strategy{
+    grid-template-columns:1fr;
+  }
+
+  h1{
+    font-size:29px;
+  }
+}
+
+@media(max-width:560px){
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .wrap{
+    padding:22px 12px 44px;
+  }
+
+  .value{
+    font-size:26px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div>
+      <div class="badge">Personal Fitness Portal V2</div>
+      <h1>2026년 8월 감량 대시보드</h1>
+      <div class="subtitle">
+        체중, 체지방률, 식사, 단백질 보충, 러닝, 근력운동을 한 화면에서 관리하는 개인 포털입니다.
+      </div>
+    </div>
+    <div class="status">GitHub Pages 배포 성공</div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="label">현재 체중</div>
+      <div class="value">76.57kg</div>
+      <div class="note">시작 76.17kg · 목표 73.0kg</div>
+      <div class="progress">
+        <div class="bar" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">현재 평균 체중</div>
+      <div class="value">76.29kg</div>
+      <div class="note">8/1~8/4 기록 기준</div>
+    </div>
+
+    <div class="card">
+      <div class="label">체지방률 목표</div>
+      <div class="value">17.3% → 15.5%</div>
+      <div class="note">주 1회 피트니스센터 측정값으로 업데이트</div>
+    </div>
+
+    <div class="card">
+      <div class="label">러닝 누적</div>
+      <div class="value">22.1km</div>
+      <div class="note">주간 목표 35km 대비 약 63%</div>
+      <div class="progress">
+        <div class="bar" style="width:63%"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h2>체중 추세</h2>
+      <div class="chart">
+        <svg viewBox="0 0 680 250">
+          <line x1="55" y1="30" x2="55" y2="205" class="axis"></line>
+          <line x1="55" y1="205" x2="640" y2="205" class="axis"></line>
+
+          <line x1="55" y1="60" x2="640" y2="60" class="gridline"></line>
+          <line x1="55" y1="105" x2="640" y2="105" class="gridline"></line>
+          <line x1="55" y1="150" x2="640" y2="150" class="gridline"></line>
+
+          <line x1="55" y1="198" x2="640" y2="198" class="target-line"></line>
+          <text x="555" y="190" class="svg-text">목표 73kg</text>
+
+          <polyline class="weight-line" points="90,138 250,136 410,136 570,92"></polyline>
+
+          <circle cx="90" cy="138" r="7" class="dot"></circle>
+          <circle cx="250" cy="136" r="7" class="dot"></circle>
+          <circle cx="410" cy="136" r="7" class="dot"></circle>
+          <circle cx="570" cy="92" r="7" class="dot"></circle>
+
+          <text x="78" y="228" class="svg-text">8/1</text>
+          <text x="238" y="228" class="svg-text">8/2</text>
+          <text x="398" y="228" class="svg-text">8/3</text>
+          <text x="558" y="228" class="svg-text">8/4</text>
+
+          <text x="70" y="128" class="svg-text">76.17</text>
+          <text x="230" y="126" class="svg-text">76.20</text>
+          <text x="390" y="126" class="svg-text">76.20</text>
+          <text x="548" y="82" class="svg-text">76.57</text>
+        </svg>
+      </div>
+      <div class="note">
+        8/4 체중 증가는 수분, 나트륨, 운동 회복 수분 영향 가능성이 큽니다.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>운동 누적</h2>
+      <div class="chips">
+        <span class="chip">러닝 22.1km</span>
+        <span class="chip green">푸시업 280개</span>
+        <span class="chip green">스쿼트 100개</span>
+        <span class="chip yellow">카프레이즈 100개</span>
+      </div>
+
+      <div class="section">
+        <h2>이번 주 핵심 전략</h2>
+        <div class="strategy">
+          <div class="strategy-item">
+            <strong>점심</strong>
+            회사 일반식. 밥은 1/2~2/3 수준으로 조절.
+          </div>
+          <div class="strategy-item">
+            <strong>저녁</strong>
+            닭가슴살 200g + 양파 + 새송이 + 마늘.
+          </div>
+          <div class="strategy-item">
+            <strong>부족할 때</strong>
+            삶은계란 2개 추가.
+          </div>
+          <div class="strategy-item">
+            <strong>러닝 후</strong>
+            더단백 또는 그릭요거트로 단백질 보충.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section callout">
+    오늘의 해석: 76.57kg은 실망할 숫자라기보다 단기 변동 가능성이 큰 숫자입니다. 러닝 8.1km, 스쿼트 100개, 푸시업 80개, 카프레이즈 100개, 운동 직후 단백질 보충은 매우 좋은 흐름입니다.
+  </div>
+
+  <section class="section">
+    <h2>일별 감량 관리표</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>날짜</th>
+            <th>체중</th>
+            <th>체지방률</th>
+            <th>식사기록</th>
+            <th>kcal 추정</th>
+            <th>단백질 상태</th>
+            <th>추천 보충 음식</th>
+            <th>러닝</th>
+            <th>운동</th>
+            <th>코멘트</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td class="date">8/1</td>
+            <td>76.17kg</td>
+            <td>17.3%</td>
+            <td class="meal">아침 스킵 / 점심 복숭아 1개 + 알리올리오 파스타 1인분 / 저녁 복숭아 1개 + 삼겹살 200g + 상추 + 깻잎 + 된장찌개 / 간식 냉동 블루베리 150g</td>
+            <td>1,500~1,800</td>
+            <td>부족 (-40g 내외)</td>
+            <td class="supplement">삶은계란 2개 + 그릭요거트 1개</td>
+            <td>7km</td>
+            <td>푸시업 100개</td>
+            <td class="comment">운동은 좋음. 아침과 점심 단백질 부족, 삼겹살 비중 높음.</td>
+          </tr>
+
+          <tr>
+            <td class="date">8/2</td>
+            <td>76.20kg</td>
+            <td>측정 없음</td>
+            <td class="meal">아침 스킵 / 점심 돈까스 / 저녁 삼겹살 200g + 상추 + 깻잎 + 된장 / 간식 없음</td>
+            <td>1,400~1,700</td>
+            <td>부족 (-50g 내외)</td>
+            <td class="supplement">더단백 1개 또는 삶은계란 2개</td>
+            <td>7km</td>
+            <td>푸시업 100개</td>
+            <td class="comment">점심 일반식, 저녁 삼겹살. 단백질은 있으나 지방 비중 높음.</td>
+          </tr>
+
+          <tr>
+            <td class="date">8/3</td>
+            <td>76.20kg</td>
+            <td>측정 없음</td>
+            <td class="meal">아침 그릭요거트 1개 + 아오리사과 1개 / 점심 김밥 1줄 + 아오리사과 1개 / 간식 그릭요거트 1개 / 저녁 미입력</td>
+            <td>800~1,000 + 저녁</td>
+            <td>개선, 저녁 확인 필요</td>
+            <td class="supplement">저녁 단백질 보충 권장: 앞다리살 200g 또는 닭가슴살 200g</td>
+            <td>미입력</td>
+            <td>미입력</td>
+            <td class="comment">그릭요거트 2개로 단백질 보완. 저녁 기록 필요.</td>
+          </tr>
+
+          <tr>
+            <td class="date">8/4</td>
+            <td>76.57kg</td>
+            <td>측정 없음</td>
+            <td class="meal">운동 직후 빙그레 더단백 딸기 1개 / 아침 빙그레 요즘 그릭요거트 1개 + 작은 아오리사과 1개 / 점심 미입력 / 저녁 계획: 닭가슴살 200g + 양파 1개 + 새송이버섯 1개 + 마늘 5~6쪽, 부족하면 삶은계란 2개</td>
+            <td>현재 300~400 + 점심/저녁</td>
+            <td>양호하게 시작</td>
+            <td class="supplement">점심 단백질 부족 시 삶은계란 2개 또는 더단백 1개</td>
+            <td>8.1km</td>
+            <td>스쿼트 100개 + 푸시업 80개 + 카프레이즈 100개</td>
+            <td class="comment">체중 상승은 수분, 나트륨, 회복 수분 가능성. 운동과 단백질 보충 매우 좋음.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section card">
+    <h2>러닝화 메모</h2>
+    <ul>
+      <li>적토끼 울트라9: 반발력과 페이스는 좋지만 발목 바깥쪽 통증과 후반부 발 걸림 느낌이 있음.</li>
+      <li>노바블라스트5: 안정적이고 발목 부담은 적지만 반발력과 페이스 만족도는 낮음.</li>
+      <li>다음 관리 포인트: 신발별 거리, 발목 통증 점수, 걸릴 뻔한 횟수를 기록하면 원인 파악에 도움.</li>
+    </ul>
+  </section>
+
+  <div class="footer">
+    개인 감량 기록용 정적 HTML 대시보드입니다. 건강 관련 판단은 참고용이며, 통증이나 이상 증상이 지속되면 전문가 상담을 권장합니다.
+  </div>
+
+</div>
+</body>
+</html>
